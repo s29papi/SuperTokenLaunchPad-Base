@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
     ).then((res) => res.arrayBuffer());
     return new ImageResponse(
         (
-            <div tw='flex w-full h-full justify-center items-center text-4xl text-white bg-blue-500' style={{fontFamily: 'Kanit ExtraBold'}}>
+            <div tw='flex w-full h-full justify-center items-center text-3xl left-3 text-white bg-blue-500' style={{fontFamily: 'Kanit ExtraBold'}}>
                 3. Give SuperFluid Upgradeable Powers Over your Token ? 
             </div>
         ),
