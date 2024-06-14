@@ -2,7 +2,7 @@ import { getFrameMetadata } from '@coinbase/onchainkit/frame';
 import type { Metadata } from 'next';
 
 
-const FRAMES_URL = process.env.FRAMES_URL || "https://3dns-domain-register-frame.vercel.app"
+const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-base.vercel.app"
 const imageUrl = new URL("/og", FRAMES_URL).href
 const postUrl = new URL("/api/frame", FRAMES_URL).href
 
