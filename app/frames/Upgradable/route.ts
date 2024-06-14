@@ -8,7 +8,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const tokenName:any = searchParams.get("tokenName");
     const ogImageUrl = new URL(`/og/Upgradable`, FRAMES_URL).href
     const tokenSymbol = body.untrustedData.inputText
-    const post_Url = new URL(`/frames/Underlying?tokenName=${tokenName}`, FRAMES_URL).href
+    const post_Url = new URL(`/frames/Underlying?tokenName=${tokenName}&&tokenSymbol=${tokenSymbol}`, FRAMES_URL).href
     return new NextResponse(`<!DOCTYPE html><html><head>
       <title>Upgradability</title>
       <meta property="fc:frame" content="vNext" />
