@@ -15,7 +15,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       <meta property="of:accepts:xmtp" content="2024-02-01" /> 
       <meta property="fc:frame:image" content="${ogImageUrl}"/>
       <meta property="fc:frame:input:text" content="> Underlying Token Address"/>
-      <meta property="fc:frame:button:1" content="Deploy Token" />
+      <meta property="fc:frame:button:1" content="Deploy" />
       <meta property="fc:frame:button:1:action" content="post"/>
       <meta property="fc:frame:post_url" content="/"/>
       </head></html>`)
