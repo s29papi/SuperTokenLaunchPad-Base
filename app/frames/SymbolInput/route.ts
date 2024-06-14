@@ -14,7 +14,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       <meta property="fc:frame:input:text" content="> Token Symbol"/>
       <meta property="fc:frame:button:1" content="Next" />
       <meta property="fc:frame:button:1:action" content="post"/>
-      <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/upgradable?tokenName=${tokenName}"/>
+      <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/Upgradable?tokenName=${tokenName}"/>
       </head></html>`)
 }
 
