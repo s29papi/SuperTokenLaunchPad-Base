@@ -1,0 +1,17 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit/frame';
+
+async function getResponse(req: NextRequest): Promise<NextResponse> {
+    const body: FrameRequest = await req.json();
+    const { searchParams } = new URL(req.url);
+    
+    const txhash = searchParams.get('txhash')
+
+    return NextResponse.redirect(`https://super-token-launch-pad-base.vercel.app/redirect?txhash=${txhash}`, {status: 302});
+}
+
+export async function POST(req: NextRequest): Promise<Response> {
+  return getResponse(req);
+}
+
+export const dynamic = 'force-dynamic';

@@ -9,6 +9,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const tokenSymbol = body.untrustedData.inputText
     const ogImageUrl = new URL(`/og/Underlying`, FRAMES_URL).href
     const deployTxUrl = new URL(`/tx/deploy?tokenName=${tokenName}&&tokenSymbol=${tokenSymbol}`, FRAMES_URL).href
+    const postUrl = new URL(`/frames/Success`, FRAMES_URL).href
     
     return new NextResponse(`<!DOCTYPE html><html><head>
       <title>Upgradability</title>
@@ -24,7 +25,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
        />
         <meta
             property="fc:frame:button:1:post_url"
-            content="/" 
+            content="${postUrl}" 
         />
       </head></html>`)
 }
