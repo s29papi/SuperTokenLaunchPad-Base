@@ -4,17 +4,20 @@ import { NextRequest, NextResponse } from 'next/server';
 const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-base.vercel.app"
 async function getResponse(req: NextRequest): Promise<NextResponse> { 
     const body: FrameRequest = await req.json();
-    const ogImageUrl = new URL(`/og/SymbolInput`, FRAMES_URL).href
-    const tokenName = body.untrustedData.inputText
+    const searchParams = req.nextUrl.searchParams;
+    const tokenName:any = searchParams.get("tokenName");
+    const ogImageUrl = new URL(`/og/Upgradable`, FRAMES_URL).href
+    const tokenSymbol = body.untrustedData.inputText
     return new NextResponse(`<!DOCTYPE html><html><head>
-      <title>Input Token Name</title>
+      <title>Upgradability</title>
       <meta property="fc:frame" content="vNext" />
       <meta property="of:accepts:xmtp" content="2024-02-01" /> 
       <meta property="fc:frame:image" content="${ogImageUrl}"/>
-      <meta property="fc:frame:input:text" content="> Token Symbol"/>
-      <meta property="fc:frame:button:1" content="Next" />
+      <meta property="fc:frame:button:1" content="Yes" />
       <meta property="fc:frame:button:1:action" content="post"/>
-      <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/upgradable?tokenName=${tokenName}"/>
+      <meta property="fc:frame:button:2" content="No" />
+      <meta property="fc:frame:button:2:action" content="post"/>
+      <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/underlying?tokenName=${tokenName}&&tokenSymbol=${tokenSymbol}"/>
       </head></html>`)
 }
 
