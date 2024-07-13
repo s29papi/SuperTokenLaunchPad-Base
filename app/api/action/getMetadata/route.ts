@@ -9,14 +9,16 @@ import { getResponsePOST } from '@/app/postAction';
  * 
 */
 async function getResponse(req: NextRequest): Promise<NextResponse> {
+    const body: FrameRequest = await req.json();
+    const inputText = body.untrustedData.inputText;
    if (req.method == 'GET') {
         return getResponseGET(req)
    }
    if (req.method == 'POST') {
-        return getResponsePOST(req)
+        return getResponsePOST(req, inputText)
    }
 
-   return getResponsePOST(req) 
+   return getResponsePOST(req, inputText) 
 }
 
 

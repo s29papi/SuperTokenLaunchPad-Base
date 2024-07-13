@@ -10,11 +10,11 @@ type Message = {
     message: string;
 }
 
-export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
+export async function getResponsePOST(req: NextRequest, inputText: string): Promise<NextResponse> {
     
     const body: FrameRequest = await req.json();
     const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
-    const inputText = body.untrustedData.inputText;
+    
 
     if (!isValid) {
         return new NextResponse('Message not valid', { status: 500 });
