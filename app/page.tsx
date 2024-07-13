@@ -9,7 +9,7 @@ const postUrl = new URL("/frames/FirstPageHandler", FRAMES_URL).href
 const frameMetadata = getFrameMetadata({
   buttons: [
       {label: 'Super Create 🍬', action: 'post'},
-      {label: 'Super Unwrap 🍫', action: 'post'},
+      {label: 'Setup Cast Action', action: 'post'},
   ],
   image: imageUrl,
   post_url: postUrl,
