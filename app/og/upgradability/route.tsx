@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
     return new ImageResponse(
         (
             <div tw='flex w-full h-full justify-center items-center text-6xl text-white bg-blue-500' style={{fontFamily: 'Kanit ExtraBold'}}>
-                2. Input Token Symbol ?
+                3. Give Superfluid Upgradeability ?
             </div>
         ),
         {
