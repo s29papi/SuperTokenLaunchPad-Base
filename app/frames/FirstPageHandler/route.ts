@@ -20,6 +20,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                     <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/SymbolInput"/>
                     </head></html>`
         response.push(NameInputResp)
+        return new NextResponse(NameInputResp)
     }
 
     if (idx == 2) {
@@ -35,9 +36,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/SymbolInput"/>
             </head></html>`
         response.push(SuperTokenInputResp)
+        return new NextResponse(SuperTokenInputResp)
     }
 
-    return new NextResponse(response[idx-1])
+    return new NextResponse(``)
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
