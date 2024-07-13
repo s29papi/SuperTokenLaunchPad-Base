@@ -1,11 +1,11 @@
 import { FrameRequest } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
   
-const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-base.vercel.app"
+const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-base.vercel.app";
+
 async function getResponse(req: NextRequest): Promise<NextResponse> { 
     const body: FrameRequest = await req.json();
     const idx = body.untrustedData.buttonIndex;
-    const response = [];
 
     if (idx == 1) {
         const ogImageUrl = new URL(`/og/NameInput`, FRAMES_URL).href;
@@ -19,7 +19,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                     <meta property="fc:frame:button:1:action" content="post"/>
                     <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/SymbolInput"/>
                     </head></html>`
-        response.push(NameInputResp)
         return new NextResponse(NameInputResp)
     }
 
@@ -32,10 +31,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             <meta property="fc:frame:image" content="${ogImageUrl}"/>
             <meta property="fc:frame:input:text" content="> Token Address"/>
             <meta property="fc:frame:button:1" content="Create Cast Action ➡️" />
-            <meta property="fc:frame:button:1:action" content="post"/>
-            <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/SymbolInput"/>
+            <meta property="fc:frame:button:1:action" content="link"/>
+            <meta property="fc:frame:button:1:target" content="${FRAMES_URL}/api/action/getMetadata"/>
+            <meta property="fc:frame:post_url" content="${FRAMES_URL}/"/>
             </head></html>`
-        response.push(SuperTokenInputResp)
         return new NextResponse(SuperTokenInputResp)
     }
 
