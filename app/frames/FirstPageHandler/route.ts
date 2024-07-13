@@ -23,18 +23,18 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     }
 
     if (idx == 2) {
-        const ogImageUrl = new URL(`/og/NameInput`, FRAMES_URL).href;
-        const NotKnownResp = `<!DOCTYPE html><html><head>
+        const ogImageUrl = new URL(`/og/SuperTokenInput`, FRAMES_URL).href;
+        const SuperTokenInputResp = `<!DOCTYPE html><html><head>
             <title>Input Token Name</title>
             <meta property="fc:frame" content="vNext" />
             <meta property="of:accepts:xmtp" content="2024-02-01" /> 
             <meta property="fc:frame:image" content="${ogImageUrl}"/>
-            <meta property="fc:frame:input:text" content="> Token Name"/>
-            <meta property="fc:frame:button:1" content="Next" />
+            <meta property="fc:frame:input:text" content="> Token Address"/>
+            <meta property="fc:frame:button:1" content="Create Cast Action ➡️" />
             <meta property="fc:frame:button:1:action" content="post"/>
             <meta property="fc:frame:post_url" content="${FRAMES_URL}/frames/SymbolInput"/>
             </head></html>`
-        response.push(NotKnownResp)
+        response.push(SuperTokenInputResp)
     }
 
     return new NextResponse(response[idx-1])
