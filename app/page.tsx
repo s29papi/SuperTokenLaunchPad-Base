@@ -8,7 +8,8 @@ const postUrl = new URL("/frames/NameInput", FRAMES_URL).href
 
 const frameMetadata = getFrameMetadata({
   buttons: [
-      {label: 'Create!', action: 'post'},
+      {label: 'Super Create 🍬', action: 'post'},
+      {label: 'Super Unwrap 🍫', action: 'post'},
   ],
   image: imageUrl,
   post_url: postUrl,
