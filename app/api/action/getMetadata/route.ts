@@ -25,12 +25,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=jejej`
     }
-        return NextResponse.json(actionFrame, {status: 200});
-   
 
-   
+    return NextResponse.json(actionFrame, {status: 200});
 }
 
 
