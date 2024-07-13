@@ -21,8 +21,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                     </head></html>`
         return new NextResponse(NameInputResp)
     }
-
+    
     if (idx == 2) {
+        const actionUrl = `https://warpcast.com/~/add-cast-action?url=https%3A%2F%2F${FRAMES_URL}%2Fapi%2Faction%2FgetMetadata`
         const ogImageUrl = new URL(`/og/SuperTokenInput`, FRAMES_URL).href;
         const SuperTokenInputResp = `<!DOCTYPE html><html><head>
             <title>Input Token Name</title>
@@ -32,7 +33,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             <meta property="fc:frame:input:text" content="> Token Address"/>
             <meta property="fc:frame:button:1" content="Create Cast Action ➡️" />
             <meta property="fc:frame:button:1:action" content="link"/>
-            <meta property="fc:frame:button:1:target" content="${FRAMES_URL}/api/action/getMetadata"/>
+            <meta property="fc:frame:button:1:target" content="${actionUrl}"/>
             <meta property="fc:frame:post_url" content="${FRAMES_URL}/"/>
             </head></html>`
         return new NextResponse(SuperTokenInputResp)
