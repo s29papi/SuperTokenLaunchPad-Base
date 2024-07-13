@@ -4,7 +4,8 @@ import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit/frame';
 
 export async function POST(req: NextRequest) {
     const body: FrameRequest = await req.json();
-    
+    const { searchParams } = new URL(req.url);
+    const tokenAddress = searchParams.get('inputText');
     let postUrl = "https://0x-check-price-cast-action.vercel.app";
     let imageUrl = "https://super-token-launch-pad-base.vercel.app/og/NameInput";
     let buytxUrl = "https://0x-check-price-cast-action.vercel.app/api/buy-tx"
@@ -19,7 +20,7 @@ export async function POST(req: NextRequest) {
             <meta property="of:accepts:xmtp" content="2024-02-01" /> 
             <meta property="og:image" content="${imageUrl}"/>
             <meta property="fc:frame:image" content="${imageUrl}"/>
-            <meta property="fc:frame:input:text" content="Enter Amount USDC"/>
+            <meta property="fc:frame:input:text" content="${tokenAddress}"/>
             <meta property="fc:frame:button:1" content="Approve Buy From 0x ✅" />
             <meta property="fc:frame:button:1:action" content="tx"/>
             <meta property="fc:frame:button:1:target" content="${approvebuyTxUrl}"/>
