@@ -2,6 +2,14 @@ import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/o
 import { NextRequest, NextResponse } from 'next/server';
 import { getResponseGET } from '@/app/getAction';
 import { getResponsePOST } from '@/app/postAction';
+type ActionFrame = {
+    type: string;
+    frameUrl: string;
+}
+
+type Message = {
+    message: string;
+}
 
 /**
  * 
@@ -14,11 +22,15 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
    if (req.method == 'GET') {
         return getResponseGET(req)
    }
-   if (req.method == 'POST') {
-        return getResponsePOST(req, inputText)
-   }
+  
+    let actionFrame: ActionFrame = {
+        type: "frame",
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}`
+    }
+        return NextResponse.json(actionFrame, {status: 200});
+   
 
-   return getResponsePOST(req, inputText) 
+   
 }
 
 
@@ -31,3 +43,9 @@ export async function POST(req: NextRequest): Promise<Response> {
 }
   
 export const dynamic = 'force-dynamic';
+
+
+
+
+
+
