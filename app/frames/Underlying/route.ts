@@ -6,9 +6,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const body: FrameRequest = await req.json();
     const searchParams = req.nextUrl.searchParams;
     const tokenName:any = searchParams.get("tokenName");
-    const tokenSymbol = body.untrustedData.inputText
+    const tokenSymbol:any = searchParams.get("tokenSymbol");
+    const idx = body.untrustedData.buttonIndex
     const ogImageUrl = new URL(`/og/Underlying`, FRAMES_URL).href
-    const deployTxUrl = new URL(`/tx/deploy?tokenName=${tokenName}&&tokenSymbol=${tokenSymbol}`, FRAMES_URL).href
+    const deployTxUrl = new URL(`/tx/deploy?tokenName=${tokenName}&&tokenSymbol=${tokenSymbol}&&idx=${idx}`, FRAMES_URL).href
     const postUrl = new URL(`/frames/Success`, FRAMES_URL).href
     
     return new NextResponse(`<!DOCTYPE html><html><head>
