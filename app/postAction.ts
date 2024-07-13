@@ -23,7 +23,7 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
 
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://0x-check-price-cast-action.vercel.app/api/frame?inputFrame=${inputText}`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputFrame=${inputText}`
     }
 
 
