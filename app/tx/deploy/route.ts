@@ -19,7 +19,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
 
     const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
     const _underlyingTokenAddress = body.untrustedData.inputText
-    const _upgradability = parseInt(idx) - 1;
+    const _upgradability =  1;
     const _name = tokenName
     const _symbol = tokenSymbol 
 
