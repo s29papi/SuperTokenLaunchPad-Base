@@ -18,7 +18,7 @@ type Message = {
 */
 async function getResponse(req: NextRequest): Promise<NextResponse> {
     const body: FrameRequest = await req.json();
-    const inputText = body.untrustedData.inputText;
+    // const inputText = body.untrustedData.inputText;
    if (req.method == 'GET') {
         return getResponseGET(req)
    }
