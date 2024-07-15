@@ -2,6 +2,7 @@ import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/o
 import { NextRequest, NextResponse } from 'next/server';
 import { getResponseGET } from '@/app/getAction';
 import { getResponsePOST } from '@/app/postAction';
+
 type ActionFrame = {
     type: string;
     frameUrl: string;
@@ -25,7 +26,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=dhfh`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage`
     }
 
     return NextResponse.json(actionFrame, {status: 200});
