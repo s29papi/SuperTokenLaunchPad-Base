@@ -16,13 +16,13 @@ type Message = {
 
 export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
     
-    const body: FrameRequest = await req.json();
-    const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
+    // const body: FrameRequest = await req.json();
+    // const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
     
 
-    if (!isValid) {
-        return new NextResponse('Message not valid', { status: 500 });
-    }
+    // if (!isValid) {
+    //     return new NextResponse('Message not valid', { status: 500 });
+    // }
 
 
     // let actionFrame: ActionFrame = {
