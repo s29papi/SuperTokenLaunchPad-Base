@@ -5,6 +5,10 @@ type ActionFrame = {
     type: string;
     frameUrl: string;
 }
+type ActionMessage = {
+    type: string;
+    message: string;
+}
 
 type Message = {
     message: string;
@@ -21,11 +25,15 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
     }
 
 
-    let actionFrame: ActionFrame = {
-        type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=rrkrkrk`
+    // let actionFrame: ActionFrame = {
+    //     type: "frame",
+    //     frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=rrkrkrk`
+    // }
+    let actionMessage: ActionMessage = {
+        type: "message",
+        message: "it works"
     }
 
 
-    return NextResponse.json(actionFrame, {status: 200});
+    return NextResponse.json(actionMessage, {status: 200});
 }
