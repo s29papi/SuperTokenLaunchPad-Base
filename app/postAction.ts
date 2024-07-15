@@ -29,8 +29,8 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
     //     type: "frame",
     //     frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=rrkrkrk`
     // }
-    let actionMessage: ActionMessage = {
-        type: "message",
+    let actionMessage: Message = {
+        // type: "message",
         message: "it works"
     }
 
