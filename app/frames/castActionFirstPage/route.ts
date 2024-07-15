@@ -5,7 +5,7 @@ import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit/frame';
 export async function POST(req: NextRequest) {
     const body: FrameRequest = await req.json();
     
-    const { searchParams } = new URL(req.url);
+    // const { searchParams } = new URL(req.url);
     // const tokenAddress = searchParams.get('inputText');
     let postUrl = "https://0x-check-price-cast-action.vercel.app";
     let imageUrl = "https://super-token-launch-pad-base.vercel.app/og/NameInput";
