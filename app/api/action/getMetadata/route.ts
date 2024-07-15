@@ -18,14 +18,14 @@ type Message = {
 */
 async function getResponse(req: NextRequest): Promise<NextResponse> {
     const body: FrameRequest = await req.json();
-    const inputText = body.untrustedData.inputText;
+    // const inputText = body.untrustedData.inputText;
    if (req.method == 'GET') {
         return getResponseGET(req)
    }
   
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=jejej`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=dhfh`
     }
 
     return NextResponse.json(actionFrame, {status: 200});
