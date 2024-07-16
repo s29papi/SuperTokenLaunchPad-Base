@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 type Action = {
     type: string;
+    postUrl: string;
 }
 
 type ActionDefination = {

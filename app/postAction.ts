@@ -14,7 +14,7 @@ type Message = {
     message: string;
 }
 
-export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
+export async function getResponsePOST(req: NextRequest, inputText: string): Promise<NextResponse> {
     
     // const body: FrameRequest = await req.json();
     // const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
@@ -25,15 +25,15 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
     // }
 
 
-    // let actionFrame: ActionFrame = {
-    //     type: "frame",
-    //     frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=rrkrkrk`
-    // }
-    let actionMessage: Message = {
-        // type: "message",
-        message: "it works"
+    let actionFrame: ActionFrame = {
+        type: "frame",
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}`
     }
+    // let actionMessage: Message = {
+    //     // type: "message",
+    //     message: "it works"
+    // }
 
 
-    return NextResponse.json(actionMessage, {status: 200});
+    return NextResponse.json(actionFrame, {status: 200});
 }

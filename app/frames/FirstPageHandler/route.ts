@@ -23,6 +23,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     }
     
     if (idx == 2) {
+                       
         const actionUrl = `https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fsuper-token-launch-pad-base.vercel.app%2Fapi%2Faction%2FgetMetadata`
         const ogImageUrl = new URL(`/og/SuperTokenInput`, FRAMES_URL).href;
         const SuperTokenInputResp = `<!DOCTYPE html><html><head>
