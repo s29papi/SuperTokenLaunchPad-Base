@@ -13,7 +13,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     
                        
         
-        
+             
         const SuperTokenInputResp = `<!DOCTYPE html><html><head>
             <title>Input Token Name</title>
             <meta property="fc:frame" content="vNext" />
