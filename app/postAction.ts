@@ -19,9 +19,9 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
 
     const decodedUrl = decodeURIComponent(req.url);
     // const pattern2Match = '%3FinputText=' + 
-    const match = decodedUrl.match(/inputText/);
+    const match = decodedUrl.match(/inputText=([^&]*)/);
 
-    
+
     if (!match) {
         return new NextResponse('inputText not found in the provided URL', { status: 400 });
     }
