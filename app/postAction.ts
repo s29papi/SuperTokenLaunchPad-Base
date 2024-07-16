@@ -27,7 +27,7 @@ export async function getResponsePOST(req: NextRequest, inputText: string): Prom
     
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${req.url.toString().substring(24, 28)}`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${req.url.toString().substring(32, 38)}`
     }
     // let actionMessage: Message = {
     //     // type: "message",
