@@ -22,14 +22,14 @@ export async function getResponsePOST(req: NextRequest, inputText: string): Prom
         return new NextResponse('inputText parameter is required', { status: 400 });
     }
 
-    const decodedUrl = decodeURIComponent(inpurtText);
-    const match = decodedUrl.match(/inputText=([^&]*)/);
+    // const decodedUrl = decodeURIComponent(inpurtText);
+    // const match = decodedUrl.match(/inputText=([^&]*)/);
 
-    if (!match) {
-        return new NextResponse('inputText not found in the provided URL', { status: 400 });
-    }
+    // if (!match) {
+    //     return new NextResponse('inputText not found in the provided URL', { status: 400 });
+    // }
 
-    const extractedInputText = match[1];
+    const extractedInputText = "";
     
 
     
@@ -37,11 +37,6 @@ export async function getResponsePOST(req: NextRequest, inputText: string): Prom
         type: "frame",
         frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${extractedInputText}`
     }
-    // let actionMessage: Message = {
-    //     // type: "message",
-    //     message: "it works"
-    // }
-
 
     return NextResponse.json(actionFrame, {status: 200});
 }
