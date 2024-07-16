@@ -19,7 +19,7 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
 
     const decodedUrl = decodeURIComponent(req.url);
     // const pattern2Match = '%3FinputText=' + 
-    const match = decodedUrl.match(/inputText=([^&]*)/);
+    const match = decodedUrl.match(/inputText%3D([^&]*)/);
 
 
     if (!match) {
