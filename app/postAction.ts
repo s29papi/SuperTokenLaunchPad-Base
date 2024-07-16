@@ -15,19 +15,27 @@ type Message = {
 }
 
 export async function getResponsePOST(req: NextRequest, inputText: string): Promise<NextResponse> {
-    
-    // const body: FrameRequest = await req.json();
-    // const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
+    const { searchParams } = new URL(req.url);
+    const inpurtText = searchParams.get('url');
+
+    if (!inpurtText) {
+        return new NextResponse('inputText parameter is required', { status: 400 });
+    }
+
+    const decodedUrl = decodeURIComponent(inpurtText);
+    const match = decodedUrl.match(/inputText=([^&]*)/);
+
+    if (!match) {
+        return new NextResponse('inputText not found in the provided URL', { status: 400 });
+    }
+
+    const extractedInputText = match[1];
     
 
-    // if (!isValid) {
-    //     return new NextResponse('Message not valid', { status: 500 });
-    // }
-    const { searchParams } = new URL(req.url.toString());
     
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${req.url.toString().substring(71,74)}`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${extractedInputText}`
     }
     // let actionMessage: Message = {
     //     // type: "message",
