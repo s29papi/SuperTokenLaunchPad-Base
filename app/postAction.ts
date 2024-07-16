@@ -23,11 +23,11 @@ export async function getResponsePOST(req: NextRequest, inputText: string): Prom
     // if (!isValid) {
     //     return new NextResponse('Message not valid', { status: 500 });
     // }
-
+    const { searchParams } = new URL(req.url.toString());
     
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${req.url.toString().substring(32, 38)}`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${req.url.toString().substring(42, 46)}`
     }
     // let actionMessage: Message = {
     //     // type: "message",
