@@ -24,7 +24,7 @@ export async function getResponsePOST(req: NextRequest, inputText: string): Prom
     //     return new NextResponse('inputText not found in the provided URL', { status: 400 });
     // }
 
-    const extractedInputText = decodedUrl.substring(2, 4);
+    const extractedInputText = decodedUrl.substring(62, 64);
     
 
     
