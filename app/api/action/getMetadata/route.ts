@@ -18,12 +18,13 @@ type Message = {
 */
 async function getResponse(req: NextRequest): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
-    const inputText = searchParams.get('inputText');
+    let inputText = ""; 
+    inputText = searchParams.get('inputText') || 'it is from here';
     const body: FrameRequest = await req.json();
 
-    if (!inputText) {
-        return new NextResponse('inputText parameter is required', { status: 400 });
-    }
+    // if (!inputText) {
+    //     return new NextResponse('inputText parameter is required', { status: 400 });
+    // }
   
     return getResponsePOST(req, inputText) 
 }
