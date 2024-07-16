@@ -18,8 +18,8 @@ type Message = {
 */
 async function getResponse(req: NextRequest): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
-    let inputText = ""; 
-    inputText = searchParams.get('inputText') || 'it is from here';
+    let inputText = "rrr"; 
+    // inputText = searchParams.get('inputText') || 'it is from here';
     const body: FrameRequest = await req.json();
 
     // if (!inputText) {
