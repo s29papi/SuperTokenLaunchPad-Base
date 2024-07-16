@@ -26,7 +26,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     //     return new NextResponse('inputText parameter is required', { status: 400 });
     // }
   
-    return getResponsePOST(req, inputText) 
+    return getResponsePOST(req, req.url) 
 }
 
 
