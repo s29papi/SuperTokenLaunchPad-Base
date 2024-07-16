@@ -26,8 +26,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             </head></html>`
         return new NextResponse(SuperTokenInputResp)
    
-
-    return new NextResponse(``)
 }
 
 export async function POST(req: NextRequest): Promise<Response> {
