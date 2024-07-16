@@ -18,13 +18,13 @@ export async function getResponsePOST(req: NextRequest, inputText: string): Prom
 
 
     const decodedUrl = decodeURIComponent(req.url);
-    const match = decodedUrl.match(/inputText=([^&]*)/);
+    // const match = decodedUrl.match(/inputText=([^&]*)/);
 
-    if (!match) {
-        return new NextResponse('inputText not found in the provided URL', { status: 400 });
-    }
+    // if (!match) {
+    //     return new NextResponse('inputText not found in the provided URL', { status: 400 });
+    // }
 
-    const extractedInputText = match.toString();
+    const extractedInputText = decodedUrl.substring(2, 45);
     
 
     
