@@ -24,10 +24,10 @@ export async function getResponsePOST(req: NextRequest, inputText: string): Prom
     //     return new NextResponse('Message not valid', { status: 500 });
     // }
 
-
+    
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${req.url}`
     }
     // let actionMessage: Message = {
     //     // type: "message",
