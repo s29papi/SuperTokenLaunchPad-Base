@@ -15,19 +15,14 @@ type Message = {
 }
 
 export async function getResponsePOST(req: NextRequest, inputText: string): Promise<NextResponse> {
-    const { searchParams } = new URL(req.url);
-    const inpurtText = searchParams.get('url');
 
-    if (!inpurtText) {
-        return new NextResponse('inputText parameter is required', { status: 400 });
+
+    const decodedUrl = decodeURIComponent(req.url);
+    const match = decodedUrl.match(/inputText=([^&]*)/);
+
+    if (!match) {
+        return new NextResponse('inputText not found in the provided URL', { status: 400 });
     }
-
-    // const decodedUrl = decodeURIComponent(inpurtText);
-    // const match = decodedUrl.match(/inputText=([^&]*)/);
-
-    // if (!match) {
-    //     return new NextResponse('inputText not found in the provided URL', { status: 400 });
-    // }
 
     const extractedInputText = "";
     
