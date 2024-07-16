@@ -7,7 +7,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const body: FrameRequest = await req.json();
     const inputText = body.untrustedData.inputText;
    
-    const actionUrl = `https://warpcast.com/~/add-cast-action?postUrl=https%3A%2F%2Fsuper-token-launch-pad-base.vercel.app%2Fapi%2Faction%2FgetMetadata&&inputText=${inputText}`;
+    const actionUrl = `https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fsuper-token-launch-pad-base.vercel.app%2Fapi%2Faction%2FgetMetadata&&inputText=${inputText}`;
     const ogImageUrl = new URL(`/og/SuperTokenInput`, FRAMES_URL).href; 
     
     
