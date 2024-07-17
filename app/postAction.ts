@@ -18,19 +18,14 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
 
 
     const decodedUrl = decodeURIComponent(req.url);
-    // const pattern2Match = '%3FinputText=' + 
+    
     
     const indexOf = decodedUrl.indexOf('0x')
-    const tokenAddr = decodedUrl.substring(indexOf + 20, indexOf + 42)
-   
+    const tokenAddr = decodedUrl.substring(indexOf, indexOf + 42)
 
-    const extractedInputText = tokenAddr
-    
-
-    const inputText = "dkdk"
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${inputText}&&reqUrl=${extractedInputText}`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${tokenAddr}`
     }
 
     return NextResponse.json(actionFrame, {status: 200});
