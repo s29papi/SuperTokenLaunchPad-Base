@@ -21,7 +21,7 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
     // const pattern2Match = '%3FinputText=' + 
     
     const indexOf = decodedUrl.indexOf('0x')
-    const tokenAddr = decodedUrl.substring(indexOf + 10, indexOf + 30)
+    const tokenAddr = decodedUrl.substring(indexOf + 20, indexOf + 42)
    
 
     const extractedInputText = tokenAddr
