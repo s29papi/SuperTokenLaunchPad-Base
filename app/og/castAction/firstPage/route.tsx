@@ -1,13 +1,14 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
 import { publicClient } from '@/client';
-import { createPublicClient, http, parseAbi } from 'viem';
+import { parseAbi } from 'viem';
 
 // fetch and use token name 
 
 export async function GET(req: NextRequest) {
+    
     const kanitFontData = await fetch(
-        new URL('../../../../../public/Kanit-ExtraBold.ttf', import.meta.url),
+        new URL('../../../../public/Kanit-ExtraBold.ttf', import.meta.url),
     ).then((res) => res.arrayBuffer());
 
 
