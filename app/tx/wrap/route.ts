@@ -12,13 +12,14 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     const { searchParams } = new URL(req.url);
     const tokenAddress = searchParams.get('tokenAddress')
 
-    const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
-    const amount = body.untrustedData.inputText
+    // const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
+    // const amount = body.untrustedData.inputText
+    const amount = '23'
 
 
-    if (!isValid) {
-        return new NextResponse('Message not valid', { status: 500 });
-      }
+    // if (!isValid) {
+    //     return new NextResponse('Message not valid', { status: 500 });
+    //   }
 
     const decimals: string = await publicClient.readContract({
         abi: parseAbi(['function decimals() view returns (string)']),
