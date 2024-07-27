@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
     if (!tokenName) {
         return new ImageResponse(<div tw='flex'>ff</div>);
     }
-    
+        
     const token: string = tokenName || '';
     return new ImageResponse(
         (
