@@ -26,7 +26,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     let data = encodeFunctionData({
         abi: abi,
         functionName: 'createERC20Wrapper',
-        args: [_underlyingTokenAddress, _upgradability, _name, _symbol]
+        args: [_underlyingTokenAddress, 0, _name, _symbol]
     })
 
     const txData: FrameTransactionResponse = {
