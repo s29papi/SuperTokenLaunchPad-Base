@@ -14,15 +14,16 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
 
     const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
     const amount = body.untrustedData.inputText;
+    
 
     if (!isValid) {
         return new NextResponse('Message not valid', { status: 500 });
       }
 
     let data = encodeFunctionData({
-        abi: parseAbi(['function upgrade(uint256) external']),
-        functionName: 'upgrade',
-        args: [parseUnits(amount, 18)]
+        abi: parseAbi(['function approve(address,uint256) external']),
+        functionName: 'approve',
+        args: [`0x${tokenAddress?.slice(2)}`, parseUnits(amount, 18)]
     })
 
     const txData: FrameTransactionResponse = {

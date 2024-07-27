@@ -6,13 +6,14 @@ const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-bas
 async function getResponse(req: NextRequest): Promise<NextResponse> { 
     const body: FrameRequest = await req.json();
     const inputText = body.untrustedData.inputText;
-   
-    const actionUrl = `https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fsuper-token-launch-pad-base.vercel.app%2Fapi%2Faction%2FgetMetadata%3FinputText%3D${inputText}`;
+    const { searchParams } = new URL(req.url);
+    const stokenAddress = searchParams.get('st');
+    const actionUrl = `https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fsuper-token-launch-pad-base.vercel.app%2Fapi%2Faction%2FgetMetadata%3FinputText%3D${stokenAddress}&&st=2`;
     const ogImageUrl = new URL(`/og/caInstallation`, FRAMES_URL).href; 
     
     
                        
-        
+               
                   
         const SuperTokenInputResp = `<!DOCTYPE html><html><head>
             <title>Input Token Name</title>

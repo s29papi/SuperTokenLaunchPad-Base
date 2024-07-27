@@ -13,7 +13,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const postUrl = new URL(`/frames/Success`, FRAMES_URL).href
          
     return new NextResponse(`<!DOCTYPE html><html><head>
-      <title>Upgradability</title>
+      <title>Upgradability</title>   
       <meta property="fc:frame" content="vNext" />
       <meta property="of:accepts:xmtp" content="2024-02-01" /> 
       <meta property="fc:frame:image" content="${ogImageUrl}"/>
