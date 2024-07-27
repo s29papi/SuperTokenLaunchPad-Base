@@ -1,6 +1,6 @@
-import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
+import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
-import { encodeFunctionData, formatEther, parseEther, parseUnits  } from 'viem';
+import { encodeFunctionData, parseEther, parseUnits  } from 'viem';
 import { base } from 'viem/chains';
 import type { FrameTransactionResponse } from '@coinbase/onchainkit/frame';
 import { parseAbi } from 'viem';
@@ -14,21 +14,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
 
     const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
     const amount = body.untrustedData.inputText;
-    // const amount = '23'
-
 
     if (!isValid) {
         return new NextResponse('Message not valid', { status: 500 });
       }
 
-    // const decimals: string = await publicClient.readContract({
-    //     abi: parseAbi(['function decimals() view returns (string)']),
-    //     functionName: 'decimals',
-    //     address: `0x${tokenAddress?.substring(2)}`,
-    //     args: [],
-    // });
     let data = encodeFunctionData({
-        abi: parseAbi(['function upgrade(uint256) view returns (string)']),
+        abi: parseAbi(['function upgrade(uint256) external']),
         functionName: 'upgrade',
         args: [parseUnits(amount, 18)]
     })
