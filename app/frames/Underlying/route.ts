@@ -11,7 +11,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const ogImageUrl = new URL(`/og/Underlying`, FRAMES_URL).href
     const deployTxUrl = new URL(`/tx/deploy?tokenName=${tokenName}&&tokenSymbol=${tokenSymbol}&&idx=${idx}`, FRAMES_URL).href
     const postUrl = new URL(`/frames/Success`, FRAMES_URL).href
-    
+         
     return new NextResponse(`<!DOCTYPE html><html><head>
       <title>Upgradability</title>
       <meta property="fc:frame" content="vNext" />

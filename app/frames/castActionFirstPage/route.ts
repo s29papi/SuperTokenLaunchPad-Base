@@ -1,19 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit/frame';
+import { FrameRequest } from '@coinbase/onchainkit/frame';
 
-
+         
 export async function POST(req: NextRequest) {
     const body: FrameRequest = await req.json();
     
     const { searchParams } = new URL(req.url);
     const tokenAddress = searchParams.get('inputText');
-    let postUrl = "https://0x-check-price-cast-action.vercel.app";
+    let postUrl = `https://super-token-launch-pad-base.vercel.app/frames/caSecondPage?tokenAddress=${tokenAddress}`;
     let imageUrl = `https://super-token-launch-pad-base.vercel.app/og/caFirstPage?tokenAddress=${tokenAddress}`;
-    let buytxUrl = "https://0x-check-price-cast-action.vercel.app/api/buy-tx"
-    let approvebuyTxUrl = "https://0x-check-price-cast-action.vercel.app/api/approve-buyTx"
     
-
-// ${tokenAddress?.length}
     return new NextResponse(
             `<!DOCTYPE html><html><head>
             <title>View on Drakula</title>
@@ -22,14 +18,11 @@ export async function POST(req: NextRequest) {
             <meta property="og:image" content="${imageUrl}"/>
             <meta property="fc:frame:image" content="${imageUrl}"/>
             <meta property="fc:frame:button:1" content="Wrap 🍬" />
-            <meta property="fc:frame:button:1:action" content="tx"/>
-            <meta property="fc:frame:button:1:target" content="${approvebuyTxUrl}"/>
+            <meta property="fc:frame:button:1:action" content="post"/>
             <meta property="fc:frame:button:2" content="UnWrap 🍭" />
-            <meta property="fc:frame:button:2:action" content="tx"/>
-            <meta property="fc:frame:button:2:target" content="${buytxUrl}"/>
+            <meta property="fc:frame:button:2:action" content="post"/>
             <meta property="fc:frame:button:3" content="Stream 🚀" />
-            <meta property="fc:frame:button:3:action" content="tx"/>
-            <meta property="fc:frame:button:3:target" content="${buytxUrl}"/>
+            <meta property="fc:frame:button:3:action" content="post"/>
             <meta property="fc:frame:post_url" content="${postUrl}"/>
             </head></html>`,
       {
