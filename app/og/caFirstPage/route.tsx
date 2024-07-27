@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
         new URL('../../../public/Kanit-ExtraBold.ttf', import.meta.url),
     ).then((res) => res.arrayBuffer());
     const tokenName = await getTokenName("0x1efF3Dd78F4A14aBfa9Fa66579bD3Ce9E1B30529");
-    const imgVal = "Super Degen"
+    const imgVal = tokenName;
     return new ImageResponse(
         (
             <div tw='flex w-full h-full justify-center items-center text-6xl text-white bg-blue-500' style={{fontFamily: 'Kanit ExtraBold'}}>
