@@ -8,7 +8,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const inputText = body.untrustedData.inputText;
     const { searchParams } = new URL(req.url);
     const stokenAddress = searchParams.get('st');
-    const actionUrl = `https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fsuper-token-launch-pad-base.vercel.app%2Fapi%2Faction%2FgetMetadata%3FinputText%3D${stokenAddress}&&st=2`;
+    const actionUrl = `https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fsuper-token-launch-pad-base.vercel.app%2Fapi%2Faction%2FgetMetadata%3FinputText%3D${stokenAddress}%3FtokenAddress%3D2`;
     const ogImageUrl = new URL(`/og/caInstallation`, FRAMES_URL).href; 
     
     
