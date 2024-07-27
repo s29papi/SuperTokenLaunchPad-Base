@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
     const kanitFontData = await fetch(
         new URL('../../../public/Kanit-ExtraBold.ttf', import.meta.url),
     ).then((res) => res.arrayBuffer());
-
+    const tokenName = await getTokenName("0x1efF3Dd78F4A14aBfa9Fa66579bD3Ce9E1B30529");
     const imgVal = "Super Degen"
     return new ImageResponse(
         (
