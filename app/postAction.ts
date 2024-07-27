@@ -19,10 +19,12 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
 
     const decodedUrl = decodeURIComponent(req.url);
     const { searchParams } = new URL(req.url);
-    const st = searchParams.get('st');
+    
     
     const indexOf = decodedUrl.indexOf('0x')
     const tokenAddr = decodedUrl.substring(indexOf, indexOf + 42)
+    const indexOfst = decodedUrl.indexOf('tokenAddress')
+    const  st = decodedUrl.substring(indexOfst, indexOfst + 1)
 
     let actionFrame: ActionFrame = {
         type: "frame",
