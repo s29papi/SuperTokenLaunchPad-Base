@@ -1,27 +1,18 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
-import { publicClient } from '@/client';
-import { parseAbi } from 'viem';
 
-// fetch and use token name 
+export const runtime = 'edge';
+
+
 
 export async function GET(req: NextRequest) {
-    
     const kanitFontData = await fetch(
         new URL('../../../public/Kanit-ExtraBold.ttf', import.meta.url),
     ).then((res) => res.arrayBuffer());
-
-
-    // const tokenName = await getTokenName("0x1efF3Dd78F4A14aBfa9Fa66579bD3Ce9E1B30529");
-    // if (!tokenName) {
-    //     return new ImageResponse(<div tw='flex'>ff</div>);
-    // }
-        
-    // const token: string = tokenName || '';
     return new ImageResponse(
         (
             <div tw='flex w-full h-full justify-center items-center text-6xl text-white bg-blue-500' style={{fontFamily: 'Kanit ExtraBold'}}>
-                omah ladies
+                2. Input Token Symbol ?
             </div>
         ),
         {
@@ -34,7 +25,7 @@ export async function GET(req: NextRequest) {
             ]
         }
     )
-}
+}    
 
 // async function getTokenName(ca: string): Promise<string> {
 //     const data: string = await publicClient.readContract({
