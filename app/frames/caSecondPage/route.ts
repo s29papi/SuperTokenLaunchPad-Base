@@ -35,6 +35,7 @@ export async function POST(req: NextRequest) {
             <meta property="of:accepts:xmtp" content="2024-02-01" /> 
             <meta property="og:image" content="${IMG_URL}"/>
             <meta property="fc:frame:image" content="${IMG_URL}"/>
+            <meta property="fc:frame:input:text" content="Enter Amount"/>
             <meta property="fc:frame:button:1" content="${BTN}" />
             <meta property="fc:frame:button:1:action" content="post"/>
             <meta property="fc:frame:post_url" content="${postUrl}"/>
