@@ -12,16 +12,16 @@ export async function GET(req: NextRequest) {
     ).then((res) => res.arrayBuffer());
 
 
-    const tokenName = await getTokenName("0x1efF3Dd78F4A14aBfa9Fa66579bD3Ce9E1B30529");
-    if (!tokenName) {
-        return new ImageResponse(<div tw='flex'>ff</div>);
-    }
+    // const tokenName = await getTokenName("0x1efF3Dd78F4A14aBfa9Fa66579bD3Ce9E1B30529");
+    // if (!tokenName) {
+    //     return new ImageResponse(<div tw='flex'>ff</div>);
+    // }
         
-    const token: string = tokenName || '';
+    // const token: string = tokenName || '';
     return new ImageResponse(
         (
             <div tw='flex w-full h-full justify-center items-center text-6xl text-white bg-blue-500' style={{fontFamily: 'Kanit ExtraBold'}}>
-                {token}
+                omah ladies
             </div>
         ),
         {
@@ -36,13 +36,13 @@ export async function GET(req: NextRequest) {
     )
 }
 
-async function getTokenName(ca: string): Promise<string> {
-    const data: string = await publicClient.readContract({
-        abi: parseAbi(['function name() view returns (string)']),
-        functionName: 'name',
-        address: `0x${ca.substring(2)}`,
-        args: [],
-    });
+// async function getTokenName(ca: string): Promise<string> {
+//     const data: string = await publicClient.readContract({
+//         abi: parseAbi(['function name() view returns (string)']),
+//         functionName: 'name',
+//         address: `0x${ca.substring(2)}`,
+//         args: [],
+//     });
     
-    return data;
-}
+//     return data;
+// }
