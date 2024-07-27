@@ -1,9 +1,9 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
+import { parseAbi } from 'viem';
+import { publicClient } from '@/client';
 
 export const runtime = 'edge';
-
-
 
 export async function GET(req: NextRequest) {
     const kanitFontData = await fetch(
@@ -29,13 +29,13 @@ export async function GET(req: NextRequest) {
     )
 }    
 
-// async function getTokenName(ca: string): Promise<string> {
-//     const data: string = await publicClient.readContract({
-//         abi: parseAbi(['function name() view returns (string)']),
-//         functionName: 'name',
-//         address: `0x${ca.substring(2)}`,
-//         args: [],
-//     });
+async function getTokenName(ca: string): Promise<string> {
+    const data: string = await publicClient.readContract({
+        abi: parseAbi(['function name() view returns (string)']),
+        functionName: 'name',
+        address: `0x${ca.substring(2)}`,
+        args: [],
+    });
     
-//     return data;
-// }
+    return data;
+}
