@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const tokenAddress = searchParams.get('inputText');
     let postUrl = "https://0x-check-price-cast-action.vercel.app";
-    let imageUrl = "https://super-token-launch-pad-base.vercel.app/og/caFirstPage";
+    let imageUrl = `https://super-token-launch-pad-base.vercel.app/og/caFirstPage?tokenAddress=${tokenAddress}`;
     let buytxUrl = "https://0x-check-price-cast-action.vercel.app/api/buy-tx"
     let approvebuyTxUrl = "https://0x-check-price-cast-action.vercel.app/api/approve-buyTx"
     
