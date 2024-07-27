@@ -12,25 +12,25 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     const { searchParams } = new URL(req.url);
     const tokenAddress = searchParams.get('tokenAddress')
 
-    // const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
-    // const amount = body.untrustedData.inputText
-    const amount = '23'
+    const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
+    const amount = body.untrustedData.inputText;
+    // const amount = '23'
 
 
-    // if (!isValid) {
-    //     return new NextResponse('Message not valid', { status: 500 });
-    //   }
+    if (!isValid) {
+        return new NextResponse('Message not valid', { status: 500 });
+      }
 
-    const decimals: string = await publicClient.readContract({
-        abi: parseAbi(['function decimals() view returns (string)']),
-        functionName: 'decimals',
-        address: `0x${tokenAddress?.substring(2)}`,
-        args: [],
-    });
+    // const decimals: string = await publicClient.readContract({
+    //     abi: parseAbi(['function decimals() view returns (string)']),
+    //     functionName: 'decimals',
+    //     address: `0x${tokenAddress?.substring(2)}`,
+    //     args: [],
+    // });
     let data = encodeFunctionData({
         abi: parseAbi(['function upgrade(uint256) view returns (string)']),
         functionName: 'upgrade',
-        args: [parseUnits(amount, parseInt(decimals))]
+        args: [parseUnits(amount, 18)]
     })
 
     const txData: FrameTransactionResponse = {
