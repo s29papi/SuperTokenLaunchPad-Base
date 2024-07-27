@@ -43,7 +43,10 @@ export async function POST(req: NextRequest) {
                     property="fc:frame:button:1:target"
                     content="${TX_URL}"
             />
-            <meta property="fc:frame:post_url" content="${postUrl}"/>
+            <meta
+                property="fc:frame:button:1:post_url"
+                content="${postUrl}" 
+            />
             </head></html>`,
       {
         status: 200,
