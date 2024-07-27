@@ -16,12 +16,13 @@ export async function POST(req: NextRequest) {
     if (idx == 1) {        
         IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=1`;
         BTN = 'Wrap ➡️'
-        
+        TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/wrap?tokenAddress=${tokenAddress}`;
     }
 
     if (idx == 2) {        
         IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=2`;
         BTN = 'UnWrap ➡️'
+        TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/unwrap?tokenAddress=${tokenAddress }`;
     }
     if (idx == 3) {        
         IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=3`;
@@ -37,7 +38,11 @@ export async function POST(req: NextRequest) {
             <meta property="fc:frame:image" content="${IMG_URL}"/>
             <meta property="fc:frame:input:text" content="Enter Amount ..."/>
             <meta property="fc:frame:button:1" content="${BTN}" />
-            <meta property="fc:frame:button:1:action" content="post"/>
+            <meta property="fc:frame:button:1:action" content="tx"/>
+            <meta
+                    property="fc:frame:button:1:target"
+                    content="${TX_URL}"
+            />
             <meta property="fc:frame:post_url" content="${postUrl}"/>
             </head></html>`,
       {
@@ -47,6 +52,6 @@ export async function POST(req: NextRequest) {
         },
       },
     );
-}
+}          
 
 export const GET = POST;
