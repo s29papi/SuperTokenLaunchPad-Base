@@ -1,5 +1,5 @@
 const abi = [
-    {
+      {
         "inputs": [
           {
             "internalType": "contract ISuperfluid",
@@ -157,7 +157,7 @@ const abi = [
       {
         "inputs": [],
         "name": "CONSTANT_OUTFLOW_NFT_LOGIC",
-        "outputs": [
+        "outputs": [ 
           {
             "internalType": "contract IConstantOutflowNFT",
             "name": "",
