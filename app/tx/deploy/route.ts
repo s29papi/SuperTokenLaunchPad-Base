@@ -11,12 +11,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     const { searchParams } = new URL(req.url);
     const tokenName = searchParams.get('tokenName')
     const tokenSymbol = searchParams.get('tokenSymbol')
-    const idx = searchParams.get('idx')
-
-    if (!idx) {
-        return NextResponse.json(``);
-    }
-
+    const idx = searchParams.get('idx') || '0';
     const { isValid, message } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
     const _underlyingTokenAddress = body.untrustedData.inputText
     const _upgradability = parseInt(idx) == 1 ? 1 : 0;
