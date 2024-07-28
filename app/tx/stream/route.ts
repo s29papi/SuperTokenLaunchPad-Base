@@ -32,7 +32,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
         params: {
             abi: [],
             data,
-            to: `0x${st?.slice(2)}`,
+            to: `0xcfA132E353cB4E398080B9700609bb008eceB125`,
             value: parseEther('0.00000').toString(),
         },
     };
