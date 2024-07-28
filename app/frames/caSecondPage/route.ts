@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { FrameRequest } from '@coinbase/onchainkit/frame';
-
+import { getFarcasterUserAddress } from '@coinbase/onchainkit/farcaster';
          
 export async function POST(req: NextRequest) {
     const body: FrameRequest = await req.json();
@@ -9,6 +9,10 @@ export async function POST(req: NextRequest) {
     const t = searchParams.get('t');
     const st = searchParams.get('st');
     const decimals = searchParams.get('dec');
+    const castAddressData = await getFarcasterUserAddress(body.untrustedData.castId.fid);
+    if (!castAddressData?.verifiedAddresses) {
+        return new NextResponse('Cast Address Data Empty not valid', { status: 500 });
+    } 
 
     let IMG_URL:string = '';
     let TX_URL:string = '';
@@ -30,8 +34,8 @@ export async function POST(req: NextRequest) {
     }
     if (idx == 3) {        
         IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=3`;
-        BTN = 'Stream ➡️'
-        TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/stream?st=${st}&&t=${t}`;
+        BTN = `Stream ${castAddressData} ➡️`
+        TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/stream?st=${st}&&t=${castAddressData}`;
         POST_URL = `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?st=${st}&&t=${t}`;
     }
     

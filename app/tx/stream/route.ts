@@ -4,29 +4,28 @@ import { encodeFunctionData, parseEther, parseUnits  } from 'viem';
 import { base } from 'viem/chains';
 import type { FrameTransactionResponse } from '@coinbase/onchainkit/frame';
 import { parseAbi } from 'viem';
-import { getFarcasterUserAddress } from '@coinbase/onchainkit/farcaster';
+
  
 
 
 
 async function getResponse(req: NextRequest): Promise<NextResponse | Response> { 
+    
     const body: FrameRequest = await req.json();
     const { searchParams } = new URL(req.url);
     const st = searchParams.get('st')
+    const t = searchParams.get('t')
     const { isValid,  } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
     const amount = body.untrustedData.inputText;
     
     if (!isValid) {
         return new NextResponse('Message not valid', { status: 500 });
       }
-    const castAddressData = await getFarcasterUserAddress(body.untrustedData.castId.fid);
-    if (!castAddressData?.verifiedAddresses) {
-        return new NextResponse('Cast Address Data Empty not valid', { status: 500 });
-    } 
+
     let data = encodeFunctionData({
         abi: parseAbi(['function setFlowrate(ISuperToken,address,int96) external']),
         functionName: 'setFlowrate',
-        args: [`0x${st?.substring(2)}`, `0x${castAddressData?.verifiedAddresses[0]?.substring(2)}`, parseUnits(amount, 0)]
+        args: [`0x${st?.substring(2)}`, `0x${t?.substring(2)}`, parseUnits(amount, 0)]
     })
 
     const txData: FrameTransactionResponse = {
