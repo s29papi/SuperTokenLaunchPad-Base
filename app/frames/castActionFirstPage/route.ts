@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     const t = searchParams.get('t');
     const st = searchParams.get('st');
     const decimals = searchParams.get('dec');
-    let postUrl = `https://super-token-launch-pad-base.vercel.app/frames/caSecondPage?st=${st}&&t=${t}`;
+    let postUrl = `https://super-token-launch-pad-base.vercel.app/frames/caSecondPage?st=${st}&&t=${t}&&dec=${decimals}`;
     let imageUrl = `https://super-token-launch-pad-base.vercel.app/og/caFirstPage?st=${st}&&t=${t}`;
     
     return new NextResponse(
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
             <meta property="of:accepts:xmtp" content="2024-02-01" /> 
             <meta property="og:image" content="${imageUrl}"/>
             <meta property="fc:frame:image" content="${imageUrl}"/>
-            <meta property="fc:frame:button:1" content="Wrap ${decimals}🍬" />
+            <meta property="fc:frame:button:1" content="Wrap 🍬" />
             <meta property="fc:frame:button:1:action" content="post"/>
             <meta property="fc:frame:button:2" content="UnWrap 🍭" />
             <meta property="fc:frame:button:2:action" content="post"/>

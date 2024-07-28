@@ -12,6 +12,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     const { searchParams } = new URL(req.url);
     const st = searchParams.get('st')
     const t = searchParams.get('t')
+    const decimals = searchParams.get('dec') || ''
 
     const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
     const amount = body.untrustedData.inputText;
@@ -24,7 +25,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     let data = encodeFunctionData({
         abi: parseAbi(['function approve(address,uint256) external']),
         functionName: 'approve',
-        args: [`0x${st?.slice(2)}`, parseUnits(amount, 18)]
+        args: [`0x${st?.slice(2)}`, parseUnits(amount, parseInt(decimals))]
     })
 
     const txData: FrameTransactionResponse = {

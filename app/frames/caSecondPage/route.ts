@@ -8,6 +8,7 @@ export async function POST(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const t = searchParams.get('t');
     const st = searchParams.get('st');
+    const decimals = searchParams.get('dec');
 
     let IMG_URL:string = '';
     let TX_URL:string = '';
@@ -17,7 +18,7 @@ export async function POST(req: NextRequest) {
     if (idx == 1) {        
         IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=1`;
        
-        TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/approve?st=${st}&&t=${t}`;
+        TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/approve?st=${st}&&t=${t}&&dec=${decimals}`;
         
 
         return new NextResponse(
