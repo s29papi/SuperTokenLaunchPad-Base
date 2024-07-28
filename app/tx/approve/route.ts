@@ -16,7 +16,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
     const amount = body.untrustedData.inputText;
     
-
+// handle for 
     if (!isValid) {
         return new NextResponse('Message not valid', { status: 500 });
       }
