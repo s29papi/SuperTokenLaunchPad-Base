@@ -20,9 +20,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
                     <meta property="fc:frame:post_url" content="${castActionInstallationPageUrl}/"/>
                     </head></html>`
         return new NextResponse(SuperTokenInputResp)
-  
-
-
 }
 
 export async function POST(req: NextRequest): Promise<Response> {

@@ -15,20 +15,15 @@ type Message = {
 }
 
 export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
-
-
     const decodedUrl = decodeURIComponent(req.url);
-    const { searchParams } = new URL(req.url);
-    
-    
-    const indexOf = decodedUrl.indexOf('0x')
-    const tokenAddr = decodedUrl.substring(indexOf, indexOf + 42)
-    const indexOfst = decodedUrl.indexOf('tokenAddress')
-    const  st = decodedUrl.substring(indexOfst, indexOfst + 54)
+    const indexOfst = decodedUrl.indexOf('0x')
+    const st = decodedUrl.substring(indexOfst, indexOfst + 42)
+    const indexOft = decodedUrl.indexOf('tokenAddress')
+    const  t = decodedUrl.substring(indexOft, indexOft + 54)
 
     let actionFrame: ActionFrame = {
         type: "frame",
-        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?inputText=${tokenAddr}&&st=${st.substring(12)}`
+        frameUrl: `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?st=${st}&&t=${t.substring(12)}`
     }
 
     return NextResponse.json(actionFrame, {status: 200});
