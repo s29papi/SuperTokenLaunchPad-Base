@@ -19,11 +19,14 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     if (!isValid) {
         return new NextResponse('Message not valid', { status: 500 });
       }
-
+    const castAddressData = await getFarcasterUserAddress(body.untrustedData.castId.fid);
+    if (!castAddressData?.verifiedAddresses) {
+        return new NextResponse('Cast Address Data Empty not valid', { status: 500 });
+    } 
     let data = encodeFunctionData({
         abi: parseAbi(['function setFlowrate(ISuperToken,address,int96) external']),
         functionName: 'setFlowrate',
-        args: [`0x${st?.substring(2)}`, `0x${st?.substring(2)}`, parseUnits(amount, 0)]
+        args: [`0x${st?.substring(2)}`, `0x${castAddressData?.verifiedAddresses[0]?.substring(2)}`, parseUnits(amount, 0)]
     })
 
     const txData: FrameTransactionResponse = {

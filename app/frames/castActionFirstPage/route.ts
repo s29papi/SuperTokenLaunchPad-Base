@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
             <meta property="of:accepts:xmtp" content="2024-02-01" /> 
             <meta property="og:image" content="${imageUrl}"/>
             <meta property="fc:frame:image" content="${imageUrl}"/>
-            <meta property="fc:frame:button:1" content="Wrap ${body.untrustedData.castId.fid} 🍬" />
+            <meta property="fc:frame:button:1" content="Wrap 🍬" />
             <meta property="fc:frame:button:1:action" content="post"/>
             <meta property="fc:frame:button:2" content="UnWrap 🍭" />
             <meta property="fc:frame:button:2:action" content="post"/>
