@@ -25,7 +25,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     let data = encodeFunctionData({
         abi: parseAbi(['function setFlowrate(ISuperToken,address,int96) external']),
         functionName: 'setFlowrate',
-        args: [`0x${st?.substring(2)}`, `0x${t?.substring(2)}`, parseUnits(amount, 0)]
+        args: [`0x${st?.substring(2)}`, `0xcfA132E353cB4E398080B9700609bb008eceB125`, parseUnits(amount, 0)]
     })
 
     const txData: FrameTransactionResponse = {
