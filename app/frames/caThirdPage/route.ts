@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     let postUrl = `https://super-token-launch-pad-base.vercel.app/frames/caSecondPage?st=${st}&&t=${t}`;
 
     if (idx == 1) {        
-        IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=1`;
+        IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caThirdPage?idx=1`;
        
         TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/wrap?st=${st}&&t=${t}&&amount=${amount}`;
 
