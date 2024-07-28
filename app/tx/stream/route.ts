@@ -21,9 +21,9 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
       }
 
     let data = encodeFunctionData({
-        abi: parseAbi(['function downgrade(ISuperToken,address,int96) external']),
-        functionName: 'downgrade',
-        args: [`0x${st?.substring(2)}`, `0x47dEAF612F0769d99aDB653bA2d22bba79F26C42`, parseUnits(amount, 0)]
+        abi: parseAbi(['function setFlowrate(address,address,int96) external']),
+        functionName: 'setFlowrate',
+        args: [`0x${st?.substring(2)}`, `0x${t?.substring(2)}`, parseUnits(amount, 0)]
     })
 
     const txData: FrameTransactionResponse = {
