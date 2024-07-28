@@ -41,7 +41,3 @@ export async function getResponsePOST(req: NextRequest): Promise<NextResponse> {
 }
 
 
-// 0x7290D97A49b71E65188515CA3A21850814678212
-// 0xbeB0fd48C2BA0F1AacaD2814605f09e08A96B94E
-
-// 1 000 000 000 

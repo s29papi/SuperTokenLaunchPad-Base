@@ -31,6 +31,8 @@ export async function POST(req: NextRequest) {
     if (idx == 3) {        
         IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=3`;
         BTN = 'Stream ➡️'
+        TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/stream?st=${st}&&t=${t}`;
+        POST_URL = `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?st=${st}&&t=${t}`;
     }
     
     return new NextResponse(
