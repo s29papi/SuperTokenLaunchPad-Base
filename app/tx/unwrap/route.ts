@@ -4,16 +4,15 @@ import { encodeFunctionData, parseEther, parseUnits  } from 'viem';
 import { base } from 'viem/chains';
 import type { FrameTransactionResponse } from '@coinbase/onchainkit/frame';
 import { parseAbi } from 'viem';
-import { publicClient } from '@/client';
+
 
 
 async function getResponse(req: NextRequest): Promise<NextResponse | Response> { 
     const body: FrameRequest = await req.json();
     const { searchParams } = new URL(req.url);
     const st = searchParams.get('st')
-    const amount = searchParams.get('amount') || ''
     const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
-    
+    const amount = body.untrustedData.inputText;
     
 
     if (!isValid) {
