@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     const tokenAddress = searchParams.get('inputText');
     const st = searchParams.get('st');
     let postUrl = `https://super-token-launch-pad-base.vercel.app/frames/caSecondPage?tokenAddress=${tokenAddress}`;
-    let imageUrl = `https://super-token-launch-pad-base.vercel.app/og/caFirstPage?tokenAddress=${tokenAddress}`;
+    let imageUrl = `https://super-token-launch-pad-base.vercel.app/og/caFirstPage?tokenAddress=${tokenAddress}&&st=${st}`;
     
     return new NextResponse(
             `<!DOCTYPE html><html><head>
