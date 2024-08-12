@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
             <meta property="og:image" content="${IMG_URL}"/>
             <meta property="fc:frame:image" content="${IMG_URL}"/>
             <meta property="fc:frame:input:text" content="Enter Amount ..."/>
-            <meta property="fc:frame:button:1" content="${BTN}Daily➡️" />
+            <meta property="fc:frame:button:1" content="Daily 🌊" />
             <meta property="fc:frame:button:1:action" content="tx"/>
             <meta
                     property="fc:frame:button:1:target"
@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
                 property="fc:frame:button:1:post_url"
                 content="${POST_URL}" 
             />
-            <meta property="fc:frame:button:2" content="${BTN}Monthly➡️" />
+            <meta property="fc:frame:button:2" content="Monthly 🌊" />
             <meta property="fc:frame:button:2:action" content="tx"/>
             <meta
                     property="fc:frame:button:2:target"
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
                 property="fc:frame:button:2:post_url"
                 content="${POST_URL}" 
             />
-            <meta property="fc:frame:button:3" content="${BTN}Yearly➡️" />
+            <meta property="fc:frame:button:3" content="Yearly 🌊" />
             <meta property="fc:frame:button:3:action" content="tx"/>
             <meta
                     property="fc:frame:button:3:target"
