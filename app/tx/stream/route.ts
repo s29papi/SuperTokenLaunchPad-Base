@@ -13,7 +13,19 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     const st = searchParams.get('st')
     const t = searchParams.get('t')
     const { isValid } = await getFrameMessage(body, { neynarApiKey: 'NEYNAR_ONCHAIN_KIT' });
-    const amount = body.untrustedData.inputText;
+
+    let StreamAmount: string = '';
+    let amount = parseInt(body.untrustedData.inputText);
+
+    if (body.untrustedData.buttonIndex == 1) {
+       StreamAmount = (amount / (24 * 60 * 60)).toString();
+    }
+    if (body.untrustedData.buttonIndex == 2) {
+       StreamAmount = (amount / ((365 / 12 ) * 24 * 60 * 60)).toString();
+    }
+    if (body.untrustedData.buttonIndex == 3) {
+        StreamAmount = (amount / (365  * 24 * 60 * 60)).toString();
+    }
     
 
     if (!isValid) {
@@ -23,7 +35,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse | Response> {
     let data = encodeFunctionData({
         abi: parseAbi(['function setFlowrate(address,address,int96) external']),
         functionName: 'setFlowrate',
-        args: [`0x${st?.substring(2)}`, `0x${t?.substring(2)}`, parseUnits(amount, 0)]
+        args: [`0x${st?.substring(2)}`, `0x${t?.substring(2)}`, parseUnits(StreamAmount, 0)]
     })
 
     const txData: FrameTransactionResponse = {
