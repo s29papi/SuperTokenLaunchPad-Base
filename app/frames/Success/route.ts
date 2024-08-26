@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-base.vercel.app"
 async function getResponse(req: NextRequest): Promise<NextResponse> { 
     const body: FrameRequest = await req.json();
-    const ogImageUrl = new URL(`/og/Success`, FRAMES_URL).href
+    const ogImageUrl = new URL(`/og/success`, FRAMES_URL).href
     const post_Url = new URL(`/frames/pre-redirect?txhash=${body.untrustedData.transactionId}`, FRAMES_URL).href
     
     return new NextResponse(`<!DOCTYPE html><html><head>
