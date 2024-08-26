@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 
 const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-base.vercel.app"
-const imageUrl = new URL("/og", FRAMES_URL).href
+const imageUrl = new URL("/og/frame1stpage", FRAMES_URL).href
 const postUrl = new URL("/frames/FirstPageHandler", FRAMES_URL).href
 
 const frameMetadata = getFrameMetadata({
