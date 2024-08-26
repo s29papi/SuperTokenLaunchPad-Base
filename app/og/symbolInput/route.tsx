@@ -3,26 +3,45 @@ import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
-
-
 export async function GET(req: NextRequest) {
-    const kanitFontData = await fetch(
-        new URL('../../../public/Kanit-ExtraBold.ttf', import.meta.url),
-    ).then((res) => res.arrayBuffer());
+
+    const question = "2. Input Token Symbol ?";
+    
     return new ImageResponse(
         (
-            <div tw='flex w-full h-full justify-center items-center text-6xl text-white bg-blue-500' style={{fontFamily: 'Kanit ExtraBold'}}>
-                2. Input Token Symbol ?
+            <div
+                style={{
+                    background: '#00E676', // Vibrant green background
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: 'Kanit ExtraBold',
+                }}
+            >
+                <div
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        backgroundColor: 'rgba(18, 18, 18, 0.9)', // Dark overlay
+                        borderRadius: '40px',
+                        padding: '40px',
+                        width: '80%',
+                        maxWidth: '1000px',
+                    }}
+                >
+                    <div style={{ color: '#FFFFFF', fontSize: '24px', marginBottom: '20px' }}>
+                        LAUNCHIT
+                    </div>
+                    <div style={{ color: '#FFFFFF', fontSize: '48px', textAlign: 'center' }}>
+                        {question}
+                    </div>
+                </div>
             </div>
         ),
-        {
-            fonts: [
-                {
-                    name: 'Kanit ExtraBold',
-                    data: kanitFontData,
-                    style: 'normal'
-                },
-            ]
-        }
-    )
-}    
+
+    );
+}
