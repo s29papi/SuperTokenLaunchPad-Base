@@ -6,7 +6,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
     const tokenName = searchParams.get('tokenName');
     const body: FrameRequest = await req.json();
-    const ogImageUrl = new URL(`/og/upgradability`, FRAMES_URL).href;
+    const ogImageUrl = new URL(`/og/Upgradability`, FRAMES_URL).href;
     const tokenSymbol = body.untrustedData.inputText;
 
     return new NextResponse(`<!DOCTYPE html><html><head>
