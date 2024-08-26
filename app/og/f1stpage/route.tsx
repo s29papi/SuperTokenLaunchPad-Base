@@ -10,7 +10,7 @@ export async function GET(req: Request) {
             <div
                 style={{
                     alignItems: 'center',
-                    background: '#FF1744',
+                    background: '#00E676',
                     backgroundSize: '100% 100%',
                     display: 'flex',
                     flexDirection: 'column',
@@ -42,10 +42,9 @@ export async function GET(req: Request) {
                             p-12 
                             pr-72 
                             pb-[466px]  
-                            bg-[#FFEB3B] 
+                            bg-[#40C4FF] 
                             bg-opacity-80 
                             shadow-lg 
-                            text-[#212121] 
                             tracking-wide  
                             w-full 
                             max-w-[1300px]
@@ -68,10 +67,12 @@ export async function GET(req: Request) {
                             <div 
                                 tw='
                                     flex
+                                    text-[#FFFFFF]
                                 '
                                     style={{
                                         fontSize: 106,
                                         fontWeight: 'bolder'
+                                        
                                     }}
                             >
                                 {"LAUNCHIT"}
@@ -83,12 +84,13 @@ export async function GET(req: Request) {
                             <div 
                                 tw='
                                     flex
+                                    text-[#FFFFFF]
                                 '
                                     style={{
                                         fontSize: 26
                                     }}
                             >
-                                {"Super Launch, Wrap, Un-wrap, and Stream Super Tokens In-Frame On Base"}
+                                {"Launch, Wrap, Un-wrap, and Stream Super Tokens In-Frame On Base"}
                             </div>
                         </div>
                     </div> 
