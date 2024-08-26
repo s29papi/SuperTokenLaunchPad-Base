@@ -11,6 +11,7 @@ export async function GET(req: NextRequest) {
     const st = searchParams.get('st') || '';
     const tokenName = await getTokenName(st);
     const imgVal = tokenName.toUpperCase();
+    const tokenAddr = st.toString().length
 
     return new ImageResponse(
         (
@@ -47,7 +48,7 @@ export async function GET(req: NextRequest) {
                         {imgVal}
                     </div>
                     <div style={{ color: '#00E676', fontSize: '24px', textAlign: 'center' }}>
-                        Super Token Address: {st.length}
+                        Super Token Address: {tokenAddr}
                     </div>
                 </div>
             </div>
