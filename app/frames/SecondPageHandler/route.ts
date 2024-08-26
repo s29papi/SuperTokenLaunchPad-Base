@@ -8,7 +8,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const inputText = body.untrustedData.inputText;
                        
     const castActionInstallationPageUrl = new URL(`/frames/castActionInstallationPage?st=${inputText}`, FRAMES_URL).href;
-    const ogImageUrl = new URL(`/og/underlyingtokenInput`, FRAMES_URL).href;
+    const ogImageUrl = new URL(`/og/UnderlyingtokenInput`, FRAMES_URL).href;
         const SuperTokenInputResp = `<!DOCTYPE html><html><head>
                     <title>Input Token Address</title>
                     <meta property="fc:frame" content="vNext" />
