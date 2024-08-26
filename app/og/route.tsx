@@ -10,7 +10,7 @@ export async function GET(req: Request) {
             <div
                 style={{
                     alignItems: 'center',
-                    background: 'black',
+                    background: '#FF1744',
                     backgroundSize: '100% 100%',
                     display: 'flex',
                     flexDirection: 'column',
@@ -42,10 +42,10 @@ export async function GET(req: Request) {
                             p-12 
                             pr-72 
                             pb-[466px]  
-                            bg-[#1B1B1B] 
+                            bg-[#FFEB3B] 
                             bg-opacity-80 
                             shadow-lg 
-                            text-white 
+                            text-[#212121] 
                             tracking-wide  
                             w-full 
                             max-w-[1300px]
