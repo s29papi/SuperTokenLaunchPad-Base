@@ -74,7 +74,7 @@ export async function GET(req: Request) {
                                         fontWeight: 'bolder'
                                     }}
                             >
-                                {"TICKERSWAP"}
+                                {"LAUNCHIT"}
                             </div>
                             {/* 
                                 TEXT: Launch, Wrap, Un-wrap, and Stream Super Tokens In-Frame On Base.
@@ -88,7 +88,7 @@ export async function GET(req: Request) {
                                         fontSize: 26
                                     }}
                             >
-                                {"Launch, Wrap, Un-wrap, and Stream Super Tokens In-Frame On Base"}
+                                {"Super Launch, Wrap, Un-wrap, and Stream Super Tokens In-Frame On Base"}
                             </div>
                         </div>
                     </div> 
