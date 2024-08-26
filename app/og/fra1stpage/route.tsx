@@ -61,7 +61,7 @@ export async function GET(req: Request) {
                                 '
                         >
                             {/* 
-                                TEXT: LAUNCHIT
+                                TEXT: LAUNCH IT
                                 Function: Handles text font i.e. styling, sizing.
                             */}
                             <div 
@@ -75,7 +75,7 @@ export async function GET(req: Request) {
                                         
                                     }}
                             >
-                                {"LAUNCHIT"}
+                                {"LAUNCH IT"}
                             </div>
                             {/* 
                                 TEXT: Launch, Wrap, Un-wrap, and Stream Super Tokens In-Frame On Base.
