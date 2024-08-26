@@ -4,9 +4,7 @@ import { NextRequest } from 'next/server';
 export const runtime = 'edge';
 
 export async function GET(req: NextRequest) {
-    const kanitFontData = await fetch(
-        new URL('../../../public/Kanit-ExtraBold.ttf', import.meta.url),
-    ).then((res) => res.arrayBuffer());
+
 
     const question = "1.  Input Token Name ? "
     
@@ -45,16 +43,5 @@ export async function GET(req: NextRequest) {
                 </div>
             </div>
         ),
-        {
-            width: 1200,
-            height: 630,
-            fonts: [
-                {
-                    name: 'Kanit ExtraBold',
-                    data: kanitFontData,
-                    style: 'normal'
-                },
-            ]
-        }
     );
 }

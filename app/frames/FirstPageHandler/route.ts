@@ -8,7 +8,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const idx = body.untrustedData.buttonIndex;
           
     if (idx == 1) {
-        const ogImageUrl = new URL(`/og/nameInput`, FRAMES_URL).href;
+        const ogImageUrl = new URL(`/og/namedInput`, FRAMES_URL).href;
         const NameInputResp = `<!DOCTYPE html><html><head>
                     <title>Input Token Name</title>
                     <meta property="fc:frame" content="vNext" />
@@ -24,7 +24,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     
     if (idx == 2) {       
         const castActionInstallationPageUrl = new URL(`/frames/SecondPageHandler`, FRAMES_URL).href;
-        const ogImageUrl = new URL(`/og/SuperTokenInput`, FRAMES_URL).href;
+        const ogImageUrl = new URL(`/og/superTokenInput`, FRAMES_URL).href;
         const SuperTokenInputResp = `<!DOCTYPE html><html><head>
                     <title>Input Token Address</title>
                     <meta property="fc:frame" content="vNext" />
