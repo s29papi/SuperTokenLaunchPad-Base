@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
         new URL('../../../public/Kanit-ExtraBold.ttf', import.meta.url),
     ).then((res) => res.arrayBuffer());
 
-    const question = "1. Input Super Token Address ?";
+    const question = "1.  Input Token Name ? "
     
     return new ImageResponse(
         (

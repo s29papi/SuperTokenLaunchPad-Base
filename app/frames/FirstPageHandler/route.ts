@@ -1,14 +1,14 @@
 import { FrameRequest } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
-  
+     
 const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-base.vercel.app";
 
 async function getResponse(req: NextRequest): Promise<NextResponse> { 
     const body: FrameRequest = await req.json();
     const idx = body.untrustedData.buttonIndex;
-
+          
     if (idx == 1) {
-        const ogImageUrl = new URL(`/og/NameInput`, FRAMES_URL).href;
+        const ogImageUrl = new URL(`/og/nameInput`, FRAMES_URL).href;
         const NameInputResp = `<!DOCTYPE html><html><head>
                     <title>Input Token Name</title>
                     <meta property="fc:frame" content="vNext" />
