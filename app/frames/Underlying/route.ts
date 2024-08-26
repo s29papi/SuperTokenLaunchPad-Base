@@ -8,7 +8,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const tokenName:any = searchParams.get("tokenName");
     const tokenSymbol:any = searchParams.get("tokenSymbol");
     const idx = body.untrustedData.buttonIndex
-    const ogImageUrl = new URL(`/og/Underlying`, FRAMES_URL).href
+    const ogImageUrl = new URL(`/og/underlying`, FRAMES_URL).href
     const deployTxUrl = new URL(`/tx/deploy?tokenName=${tokenName}&&tokenSymbol=${tokenSymbol}&&idx=${idx}`, FRAMES_URL).href
     const postUrl = new URL(`/frames/Success`, FRAMES_URL).href
          
