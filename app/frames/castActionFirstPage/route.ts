@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     const st = searchParams.get('st');
     const decimals = searchParams.get('dec');
     let postUrl = `https://super-token-launch-pad-base.vercel.app/frames/caSecondPage?st=${st}&&t=${t}&&dec=${decimals}`;
-    let imageUrl = `https://super-token-launch-pad-base.vercel.app/og/saFirstPage?st=${st}&&t=${t}`;
+    let imageUrl = `https://super-token-launch-pad-base.vercel.app/og/slaFirstPage?st=${st}&&t=${t}`;
     
     return new NextResponse(
             `<!DOCTYPE html><html><head>

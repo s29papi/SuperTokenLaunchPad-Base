@@ -47,7 +47,7 @@ export async function GET(req: NextRequest) {
                         {imgVal}
                     </div>
                     <div style={{ color: '#00E676', fontSize: '24px', textAlign: 'center' }}>
-                        Super Token Address: {st.substring(0, 6)}
+                        Super Token Address: {st}
                     </div>
                 </div>
             </div>
