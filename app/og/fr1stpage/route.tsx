@@ -42,7 +42,7 @@ export async function GET(req: Request) {
                             p-12 
                             pr-72 
                             pb-[466px]  
-                            bg-[#40C4FF] 
+                            bg-[#121212] 
                             bg-opacity-80 
                             shadow-lg 
                             tracking-wide  
