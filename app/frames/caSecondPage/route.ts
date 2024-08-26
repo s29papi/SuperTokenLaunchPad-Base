@@ -21,20 +21,20 @@ export async function POST(req: NextRequest) {
     let POST_URL = `https://super-token-launch-pad-base.vercel.app/frames/caThirdPage?st=${st}&&t=${t}`;
 
     if (idx == 1) {        
-        IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=1`;
+        IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/CaSecondPage?idx=1`;
         BTN = 'Approve'
         TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/approve?st=${st}&&t=${t}&&dec=${decimals}`;
         POST_URL = `https://super-token-launch-pad-base.vercel.app/frames/caThirdPage?st=${st}&&t=${t}`;
     }
 
     if (idx == 2) {        
-        IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=2`;
+        IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/CaSecondPage?idx=2`;
         BTN = 'UnWrap ➡️'
         TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/unwrap?st=${st}&&t=${t}`;
         POST_URL = `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?st=${st}&&t=${t}`;
     }
     if (idx == 3) {        
-        IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/caSecondPage?idx=3`;
+        IMG_URL = `https://super-token-launch-pad-base.vercel.app/og/CaSecondPage?idx=3`;
         BTN = `Stream `
         TX_URL = `https://super-token-launch-pad-base.vercel.app/tx/stream?st=${st}&&t=${castAddressData?.verifiedAddresses[0]}`;
         POST_URL = `https://super-token-launch-pad-base.vercel.app/frames/castActionFirstPage?st=${st}&&t=${t}`;
