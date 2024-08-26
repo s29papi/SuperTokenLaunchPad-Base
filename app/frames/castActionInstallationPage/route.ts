@@ -9,7 +9,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
     const supertoken = searchParams.get('st');
     const actionUrl = `https://warpcast.com/~/add-cast-action?url=https%3A%2F%2Fsuper-token-launch-pad-base.vercel.app%2Fapi%2Faction%2FgetMetadata%3FinputText%3D${supertoken}%3FtokenAddress${inputText}`;
-    const ogImageUrl = new URL(`/og/caInstallation`, FRAMES_URL).href; 
+    const ogImageUrl = new URL(`/og/CaInstallation`, FRAMES_URL).href; 
     
     const SuperTokenInputResp = `<!DOCTYPE html><html><head>
         <title>Input Token Name</title>
