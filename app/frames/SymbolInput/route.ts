@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const FRAMES_URL = process.env.FRAMES_URL || "https://super-token-launch-pad-base.vercel.app"
 async function getResponse(req: NextRequest): Promise<NextResponse> { 
     const body: FrameRequest = await req.json();
-    const ogImageUrl = new URL(`/og/symbolInput`, FRAMES_URL).href
+    const ogImageUrl = new URL(`/og/SymbolInput`, FRAMES_URL).href
     const tokenName = body.untrustedData.inputText
     return new NextResponse(`<!DOCTYPE html><html><head>
       <title>Input Token Name</title>
